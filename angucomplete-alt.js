@@ -127,6 +127,17 @@
         }
       });
 
+      scope.$on('angucomplete-alt:forceLocal', function (event, elementId, localData) {
+        if (!elementId || elementId === scope.id) {
+          if (searchTimer) {
+            $timeout.cancel(searchTimer);
+            searchTimer = null;
+          }
+          scope.searching = false;
+          processResults(localData);
+        }
+      });
+
       scope.$on('angucomplete-alt:changeInput', function (event, elementId, newval) {
         if (!!elementId && elementId === scope.id) {
           handleInputChange(newval);
