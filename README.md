@@ -209,6 +209,16 @@ For example, the id of the directive is 'autocomplete-1'.
 $scope.$broadcast('angucomplete-alt:changeInput', 'autocomplete-1', 'Hello!');
 ```
 
+### Force Local Data
+
+Sometimes you want to bypass angucomplete builtin search and perhaps trigger on input changed events and programmatically
+generate the 'local-data' list. When that is done, you can force angucomplete-alt
+to refresh the list by sending your data directly to angucomplete-alt
+
+```js
+$scope.$broadcast('angucomplete-alt:forceLocal', 'autocomplete-1', local_data);
+```
+
 ### Remote API Handler
 
 This is an example calling search API with POST.
