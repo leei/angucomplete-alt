@@ -1,9 +1,10 @@
 {
-  "name": "angucomplete-alt",
+  "name": "angucomplete-alt-tf",
   "version": "3.0.0",
-  "homepage": "http://ghiden.github.io/angucomplete-alt/",
+  "homepage": "https://github.com/leei/angucomplete-alt/",
   "authors": [
-    "Hidenari Nozaki <hidenari@gmail.com>"
+    "Hidenari Nozaki <hidenari@gmail.com>",
+    "Lee Iverson <leei@sociologi.ca>"
   ],
   "description": "Autocomplete directive for AngularJS",
   "keywords": [
