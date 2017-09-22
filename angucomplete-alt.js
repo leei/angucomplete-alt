@@ -273,6 +273,9 @@
           }
         }
         else if (which === KEY_ES) {
+          if (! scope.overrideOnBlur) {
+            scope.searchStr = null;
+          }
           clearResults();
           scope.$apply(function() {
             inputField.val(scope.searchStr);
@@ -680,7 +683,7 @@
             scope.focusOut();
           }
 
-          if (scope.overrideSuggestions) {
+          if (scope.overrideSuggestions && scope.overrideOnBlur) {
             if (scope.searchStr && scope.searchStr.length > 0 && scope.currentIndex === -1) {
               handleOverrideSuggestions();
             }
@@ -823,6 +826,7 @@
         matchClass: '@',
         clearSelected: '@',
         overrideSuggestions: '@',
+        overrideOnBlur: '@',
         fieldRequired: '=',
         fieldRequiredClass: '@',
         inputChanged: '=',
