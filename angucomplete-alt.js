@@ -1,5 +1,5 @@
 /*
- * angucomplete-alt
+ * angucomplete-alt-tf
  * Autocomplete directive for AngularJS
  * This is a fork of Daryl Rowland's angucomplete with some extra features.
  * By Hidenari Nozaki
@@ -528,6 +528,8 @@
         scope.showDropdown = displaySearching;
         scope.currentIndex = scope.focusFirst ? 0 : -1;
         scope.results = [];
+
+        decideDropdown();
       }
 
       function getLocalResults(str) {
@@ -625,9 +627,13 @@
           scope.results = [];
         }
 
+        decideDropdown();
+      }
+
+      function decideDropdown() {
         if (scope.autoMatch && scope.results.length === 1 &&
-            checkExactMatch(scope.results[0],
-              {title: text, desc: description || ''}, scope.searchStr)) {
+          checkExactMatch(scope.results[0],
+            {title: text, desc: description || ''}, scope.searchStr)) {
           scope.showDropdown = false;
         } else if (scope.results.length === 0 && !displayNoResults) {
           scope.showDropdown = false;
