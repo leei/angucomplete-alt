@@ -121,6 +121,9 @@
       scope.$on('angucomplete-alt:clearInput', function (event, elementId) {
         if (!elementId || elementId === scope.id) {
           scope.searchStr = null;
+          if (scope.inputChanged) {
+            scope.inputChanged(scope.searchStr);
+          }
           callOrAssign();
           handleRequired(false);
           clearResults();
@@ -275,6 +278,9 @@
         else if (which === KEY_ES) {
           if (! scope.overrideOnBlur) {
             scope.searchStr = null;
+            if (scope.inputChanged) {
+              scope.inputChanged(scope.searchStr);
+            }
           }
           clearResults();
           scope.$apply(function() {
@@ -716,6 +722,9 @@
 
         if (scope.clearSelected) {
           scope.searchStr = null;
+          if (scope.inputChanged) {
+            scope.inputChanged(scope.searchStr);
+          }
         }
         else {
           scope.searchStr = result.title;
